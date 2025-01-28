@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Reddit Timer Blocker",
+    "version": "1.0",
+    "description": "Blocks Reddit after 30 seconds and requires a 10-second hold to reset.",
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "storage",
+      "scripting"
+    ],
+    "host_permissions": [
+      "*://*.reddit.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.reddit.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
+  
